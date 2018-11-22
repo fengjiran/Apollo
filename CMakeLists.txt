@@ -8,4 +8,8 @@ add_executable(Apollo
         header/cvconfig.h
         header/cvdef.h
         header/test.h
-        header/interface.h)
+        header/interface.h
+        header/cv_cpu_dispatch.h
+        header/cv_cpu_config.h
+        header/cv_cpu_helper.h
+        header/fast_math.hpp)
