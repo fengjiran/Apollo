@@ -7,4 +7,5 @@ add_executable(Apollo
         main.cpp
         header/cvconfig.h
         header/cvdef.h
-        header/test.h)
+        header/test.h
+        header/interface.h)
