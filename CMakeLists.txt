@@ -12,4 +12,6 @@ add_executable(Apollo
         header/cv_cpu_dispatch.h
         header/cv_cpu_config.h
         header/cv_cpu_helper.h
-        header/fast_math.hpp header/mat.h header/types.hpp)
+        header/fast_math.hpp
+        header/mat.hpp
+        header/types.hpp)

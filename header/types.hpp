@@ -6,13 +6,29 @@
 #define APOLLO_TYPES_H
 
 namespace cv {
+
+    template <typename _TP>
+    class Point_ {
+    public:
+        typedef _TP value_type;
+
+        Point_();
+        Point_(_TP _x, _TP _y);
+        Point_(const Point_& pt);
+        Point_(Point_&& pt);
+    };
+
+
     template<typename _Tp>
     class Size_ {
+    public:
         typedef _Tp value_type;
 
         Size_();
         Size_(_Tp _width, _Tp _height);
         Size_(const Size_& sz);
+        Size_(Size_&& sz);
+
 
     };
 }
