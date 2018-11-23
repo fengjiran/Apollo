@@ -5,7 +5,7 @@
 #ifndef APOLLO_MAT_H
 #define APOLLO_MAT_H
 
-namespace cv {
+namespace apollo {
     class Mat {
     public:
         Mat();  // default constructor
