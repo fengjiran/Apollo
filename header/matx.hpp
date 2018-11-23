@@ -67,6 +67,12 @@ namespace apollo {
         static Matx randn(_Tp a, _Tp b);
 
 
+        // element access
+        const _Tp &operator()(int i, int j) const;
+
+        _Tp &operator()(int i, int j);
+
+
         _Tp val[m * n]; // matrix elements
 
 
@@ -306,6 +312,22 @@ namespace apollo {
     inline
     Matx<_Tp, m, n> Matx<_Tp, m, n>::zeors() {
         return all(0);
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n> Matx<_Tp, m, n>::ones() {
+        return all(1);
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n> Matx<_Tp, m, n>::eye() {
+
+        Matx<_Tp, m, n> M;
+        for (int i = 0; i < shortdim; i++)
+            M(i, i) = 1;
+        return M;
     }
 
 
