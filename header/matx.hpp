@@ -8,7 +8,17 @@
 namespace apollo {
     template<typename _Tp, int m, int n>
     class Matx {
-        //
+    public:
+        enum {
+            rows = m,
+            cols = n,
+            channels = rows * cols,
+            shortdim = (m < n ? m : n)
+        };
+        typedef _Tp value_type;
+        typedef Matx<_Tp, m, n> mat_type;
+        typedef Matx<_Tp, shortdim, 1> diag_type;
+
     };
 }
 
