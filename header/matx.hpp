@@ -6,6 +6,8 @@
 #ifndef APOLLO_MATX_HPP
 #define APOLLO_MATX_HPP
 
+#include "cvdef.h"
+
 namespace apollo {
     template<typename _Tp, int m, int n>
     class Matx {
@@ -22,7 +24,9 @@ namespace apollo {
 
         Matx();
 
-        Matx(_Tp v0);
+        explicit Matx(_Tp v0); // 1x1 matrix
+        Matx(_Tp v0, _Tp v1); // 1x2 matrix
+
 
         _Tp val[m * n]; // matrix elements
 
@@ -42,6 +46,17 @@ namespace apollo {
     Matx<_Tp, m, n>::Matx(_Tp v0) {
         val[0] = v0;
         for (int i = 1; i < channels; i++)
+            val[i] = _Tp(0);
+
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n>::Matx(_Tp v0, _Tp v1) {
+        CV_StaticAssert(channels >= 2, "Matx should have at least 2 elements.");
+        val[0] = v0;
+        val[1] = v1;
+        for (int i = 2; i < channels; i++)
             val[i] = _Tp(0);
 
     }
