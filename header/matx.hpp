@@ -5,9 +5,12 @@
 #ifndef APOLLO_MATX_HPP
 #define APOLLO_MATX_HPP
 
-template <typename _Tp, int m, int n>
-class Matx {
-    //
-};
+namespace apollo {
+    template<typename _Tp, int m, int n>
+    class Matx {
+        //
+    };
+}
+
 
 #endif //APOLLO_MATX_HPP
