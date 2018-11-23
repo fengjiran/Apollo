@@ -7,13 +7,13 @@
 
 namespace cv {
 
-    template <typename _TP>
+    template <typename _Tp>
     class Point_ {
     public:
-        typedef _TP value_type;
+        typedef _Tp value_type;
 
         Point_();
-        Point_(_TP _x, _TP _y);
+        Point_(_Tp _x, _Tp _y);
         Point_(const Point_& pt);
         Point_(Point_&& pt);
     };
