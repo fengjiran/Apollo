@@ -8,6 +8,8 @@
 
 #include "cvdef.h"
 
+#include <initializer_list>
+
 namespace apollo {
     template<typename _Tp, int m, int n>
     class Matx {
@@ -46,6 +48,23 @@ namespace apollo {
              _Tp v4, _Tp v5, _Tp v6, _Tp v7,
              _Tp v8, _Tp v9, _Tp v10, _Tp v11,
              _Tp v12, _Tp v13, _Tp v14, _Tp v15); //!< 1x16, 4x4 or 16x1 matrix
+        explicit Matx(const _Tp *vals); // initialize from a plain array
+
+        Matx(std::initializer_list<_Tp>);  // initialize from an initializer list
+
+        static Matx all(_Tp alpha);
+
+        static Matx zeors();
+
+        static Matx ones();
+
+        static Matx eye();
+
+        static Matx diag(const diag_type &d);
+
+        static Matx randu(_Tp a, _Tp b);
+
+        static Matx randn(_Tp a, _Tp b);
 
 
         _Tp val[m * n]; // matrix elements
@@ -255,6 +274,38 @@ namespace apollo {
         val[14] = v14;
         val[15] = v15;
         for (int i = 16; i < channels; i++) val[i] = _Tp(0);
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n>::Matx(const _Tp *vals) {
+        for (int i = 0; i < channels; i++)
+            val[i] = vals[i];
+
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n>::Matx(std::initializer_list<_Tp> list) {
+        int i = 0;
+        for (const auto &elem:list)
+            val[i++] = elem;
+
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n> Matx<_Tp, m, n>::all(_Tp alpha) {
+        Matx<_Tp, m, n> M;
+        for (int i = 0; i < m * n; i++)
+            M.val[i] = alpha;
+        return M;
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n> Matx<_Tp, m, n>::zeors() {
+        return all(0);
     }
 
 
