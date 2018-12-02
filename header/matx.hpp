@@ -85,37 +85,38 @@ namespace apollo {
 
     /////////////////////// Vec (used as element of multi-channel images /////////////////////
 
-/** @brief Template class for short numerical vectors, a partial case of Matx
+    /** @brief Template class for short numerical vectors, a partial case of Matx
 
-This template class represents short numerical vectors (of 1, 2, 3, 4 ... elements) on which you
-can perform basic arithmetical operations, access individual elements using [] operator etc. The
-vectors are allocated on stack, as opposite to std::valarray, std::vector, cv::Mat etc., which
-elements are dynamically allocated in the heap.
+    This template class represents short numerical vectors (of 1, 2, 3, 4 ... elements) on which you
+    can perform basic arithmetical operations, access individual elements using [] operator etc. The
+    vectors are allocated on stack, as opposite to std::valarray, std::vector, cv::Mat etc., which
+    elements are dynamically allocated in the heap.
 
-The template takes 2 parameters:
-@tparam _Tp element type
-@tparam cn the number of elements
+    The template takes 2 parameters:
+    @tparam _Tp element type
+    @tparam cn the number of elements
 
-In addition to the universal notation like Vec<float, 3>, you can use shorter aliases
-for the most popular specialized variants of Vec, e.g. Vec3f ~ Vec<float, 3>.
+    In addition to the universal notation like Vec<float, 3>, you can use shorter aliases
+    for the most popular specialized variants of Vec, e.g. Vec3f ~ Vec<float, 3>.
 
-It is possible to convert Vec\<T,2\> to/from Point_, Vec\<T,3\> to/from Point3_ , and Vec\<T,4\>
-to CvScalar or Scalar_. Use operator[] to access the elements of Vec.
+    It is possible to convert Vec\<T,2\> to/from Point_, Vec\<T,3\> to/from Point3_ , and Vec\<T,4\>
+    to CvScalar or Scalar_. Use operator[] to access the elements of Vec.
 
-All the expected vector operations are also implemented:
--   v1 = v2 + v3
--   v1 = v2 - v3
--   v1 = v2 \* scale
--   v1 = scale \* v2
--   v1 = -v2
--   v1 += v2 and other augmenting operations
--   v1 == v2, v1 != v2
--   norm(v1) (euclidean norm)
-The Vec class is commonly used to describe pixel types of multi-channel arrays. See Mat for details.
-*/
+    All the expected vector operations are also implemented:
+    -   v1 = v2 + v3
+    -   v1 = v2 - v3
+    -   v1 = v2 \* scale
+    -   v1 = scale \* v2
+    -   v1 = -v2
+    -   v1 += v2 and other augmenting operations
+    -   v1 == v2, v1 != v2
+    -   norm(v1) (euclidean norm)
+    The Vec class is commonly used to describe pixel types of multi-channel arrays. See Mat for details.
+    */
     template<typename _Tp, int cn>
     class Vec : public Matx<_Tp, cn, 1> {
-        //
+    public:
+        typedef _Tp value_type;
     };
 
     ////////////////////// Matx Implementation /////////////////////////
