@@ -522,7 +522,7 @@ namespace apollo {
     ////////////////////// Vec Implementation /////////////////////////
     template<typename _Tp, int cn>
     inline
-    Vec<_Tp, cn>::Vec() {}
+    Vec<_Tp, cn>::Vec() = default;
 
     template<typename _Tp, int cn>
     inline
@@ -531,6 +531,10 @@ namespace apollo {
     template<typename _Tp, int cn>
     inline
     Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1):Matx<_Tp, cn, 1>(v0, v1) {}
+
+    template <typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2):Matx<_Tp, cn, 1>(v0, v1, v2) {}
 
 
 }
