@@ -532,9 +532,14 @@ namespace apollo {
     inline
     Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1):Matx<_Tp, cn, 1>(v0, v1) {}
 
-    template <typename _Tp, int cn>
+    template<typename _Tp, int cn>
     inline
     Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2):Matx<_Tp, cn, 1>(v0, v1, v2) {}
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3)
+            : Matx<_Tp, cn, 1>(v0, v1, v2, v3) {}
 
 
 }
