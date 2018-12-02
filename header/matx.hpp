@@ -336,6 +336,12 @@ namespace apollo {
         return val[i * n + j];
     }
 
+    template<typename _Tp, int m, int n>
+    inline
+    _Tp &Matx<_Tp, m, n>::operator()(int i, int j) {
+        return val[i * n + j];
+    }
+
 
 }
 
