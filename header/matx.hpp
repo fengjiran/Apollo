@@ -337,6 +337,15 @@ namespace apollo {
 
     template<typename _Tp, int m, int n>
     inline
+    Matx<_Tp, m, n> Matx<_Tp, m, n>::diag(const typename Matx<_Tp, m, n>::diag_type &d) {
+        Matx<_Tp, m, n> M;
+        for (int i = 0; i < shortdim; i++)
+            M(i, i) = d(i, 0);
+        return M;
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
     const _Tp &Matx<_Tp, m, n>::operator()(int i, int j) const {
         return val[i * n + j];
     }
