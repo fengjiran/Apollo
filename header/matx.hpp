@@ -65,9 +65,13 @@ namespace apollo {
             channels = rows * cols,
             shortdim = (m < n ? m : n)
         };
-        typedef _Tp value_type;
-        typedef Matx<_Tp, m, n> mat_type;
-        typedef Matx<_Tp, shortdim, 1> diag_type;
+//        typedef _Tp value_type;
+//        typedef Matx<_Tp, m, n> mat_type;
+//        typedef Matx<_Tp, shortdim, 1> diag_type;
+
+        using value_type  = _Tp;
+        using mat_type = Matx<_Tp, m, n>;
+        using diag_type = Matx<_Tp, shortdim, 1>;
 
         Matx();
 
@@ -520,7 +524,9 @@ namespace apollo {
     inline
     Vec<_Tp, cn>::Vec() {}
 
-
+//    template <typename _Tp, int cn>
+//    inline
+//    Vec<_Tp, cn>::V
 
 
 }
