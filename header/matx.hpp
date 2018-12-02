@@ -538,8 +538,43 @@ namespace apollo {
 
     template<typename _Tp, int cn>
     inline
-    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3)
-            : Matx<_Tp, cn, 1>(v0, v1, v2, v3) {}
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3): Matx<_Tp, cn, 1>(v0, v1, v2, v3) {}
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4)
+            : Matx<_Tp, cn, 1>(v0, v1, v2, v3, v4) {}
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5)
+            : Matx<_Tp, cn, 1>(v0, v1, v2, v3, v4, v5) {}
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6)
+            : Matx<_Tp, cn, 1>(v0, v1, v2, v3, v4, v5, v6) {}
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6, _Tp v7)
+            : Matx<_Tp, cn, 1>(v0, v1, v2, v3, v4, v5, v6, v7) {}
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6, _Tp v7, _Tp v8)
+            : Matx<_Tp, cn, 1>(v0, v1, v2, v3, v4, v5, v6, v7, v8) {}
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6, _Tp v7, _Tp v8, _Tp v9)
+            : Matx<_Tp, cn, 1>(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9) {}
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6, _Tp v7, _Tp v8, _Tp v9, _Tp v10, _Tp v11,
+                      _Tp v12, _Tp v13)
+            : Matx<_Tp, cn, 1>(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13) {}
 
 
 }
