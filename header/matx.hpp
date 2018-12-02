@@ -218,6 +218,10 @@ namespace apollo {
 
         _Tp &operator()(int i);
 
+        Vec(const Matx<_Tp, cn, 1> &a, const Matx<_Tp, cn, 1> &b, Matx_AddOp);
+
+        Vec(const Matx<_Tp, cn, 1> &a, const Matx<_Tp, cn, 1> &b, Matx_SubOp);
+
 
 
     };
