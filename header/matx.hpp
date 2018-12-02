@@ -175,7 +175,7 @@ namespace apollo {
         //! default constructor
         Vec();
 
-        Vec(_Tp v0); //!< 1-element vector constructor
+        explicit Vec(_Tp v0); //!< 1-element vector constructor
         Vec(_Tp v0, _Tp v1); //!< 2-element vector constructor
         Vec(_Tp v0, _Tp v1, _Tp v2); //!< 3-element vector constructor
         Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3); //!< 4-element vector constructor
@@ -442,7 +442,6 @@ namespace apollo {
     Matx<_Tp, m, n>::Matx(const _Tp *vals) {
         for (int i = 0; i < channels; i++)
             val[i] = vals[i];
-
     }
 
     template<typename _Tp, int m, int n>
@@ -451,7 +450,6 @@ namespace apollo {
         int i = 0;
         for (const auto &elem:list)
             val[i++] = elem;
-
     }
 
     template<typename _Tp, int m, int n>
@@ -577,10 +575,16 @@ namespace apollo {
             : Matx<_Tp, cn, 1>(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13) {}
 
     template<typename _Tp, int cn>
+    inline
     Vec<_Tp, cn>::Vec(const _Tp *values):Matx<_Tp, cn, 1>(values) {}
 
     template<typename _Tp, int cn>
+    inline
     Vec<_Tp, cn>::Vec(std::initializer_list<_Tp> list):Matx<_Tp, cn, 1>(list) {}
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(const Vec<_Tp, cn> &v):Matx<_Tp, cn, 1>(v.val) {}
 
 
 }
