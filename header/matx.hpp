@@ -222,6 +222,9 @@ namespace apollo {
 
         Vec(const Matx<_Tp, cn, 1> &a, const Matx<_Tp, cn, 1> &b, Matx_SubOp);
 
+        template<typename _T2>
+        Vec(const Matx<_Tp, cn, 1> &a, _T2 alpha, Matx_ScaleOp);
+
 
 
     };
