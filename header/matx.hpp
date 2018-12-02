@@ -153,6 +153,26 @@ namespace apollo {
         //! conjugation (makes sense for complex numbers and quaternions)
         Vec conj() const;
 
+        /*!
+        cross product of the two 3D vectors.
+
+        For other dimensionalities the exception is raised
+        */
+        Vec cross(const Vec &v) const;
+
+        //! conversion to another data type
+        template<typename T2>
+        operator Vec<T2, cn>() const;
+
+        /*! element access */
+        const _Tp &operator[](int i) const;
+
+        _Tp &operator[](int i);
+
+        const _Tp &operator()(int i) const;
+
+        _Tp &operator()(int i);
+
 
 
     };
