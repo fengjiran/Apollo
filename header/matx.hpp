@@ -515,6 +515,14 @@ namespace apollo {
     }
 
 
+    ////////////////////// Vec Implementation /////////////////////////
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec() {}
+
+
+
+
 }
 
 
