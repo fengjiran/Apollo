@@ -72,6 +72,11 @@ namespace apollo {
 
         _Tp &operator()(int i, int j);
 
+        // 1D element access
+        const _Tp &operator()(int i) const;
+
+        _Tp &operator()(int i);
+
 
         _Tp val[m * n]; // matrix elements
 
@@ -340,6 +345,12 @@ namespace apollo {
     inline
     _Tp &Matx<_Tp, m, n>::operator()(int i, int j) {
         return val[i * n + j];
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    const _Tp &Matx<_Tp, m, n>::operator()(int i) {
+        return val[i];
     }
 
 
