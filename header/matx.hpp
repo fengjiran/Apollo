@@ -576,6 +576,12 @@ namespace apollo {
                       _Tp v12, _Tp v13)
             : Matx<_Tp, cn, 1>(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13) {}
 
+    template<typename _Tp, int cn>
+    Vec<_Tp, cn>::Vec(const _Tp *values):Matx<_Tp, cn, 1>(values) {}
+
+    template<typename _Tp, int cn>
+    Vec<_Tp, cn>::Vec(std::initializer_list<_Tp> list):Matx<_Tp, cn, 1>(list) {}
+
 
 }
 
