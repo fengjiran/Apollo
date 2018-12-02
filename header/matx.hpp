@@ -116,7 +116,37 @@ namespace apollo {
     template<typename _Tp, int cn>
     class Vec : public Matx<_Tp, cn, 1> {
     public:
-        typedef _Tp value_type;
+//        typedef _Tp value_type;
+        using value_type = _Tp;
+        enum {
+            channels = cn,
+            dummy_enum_finalizer = 0
+        };
+
+        //! default constructor
+        Vec();
+
+        Vec(_Tp v0); //!< 1-element vector constructor
+        Vec(_Tp v0, _Tp v1); //!< 2-element vector constructor
+        Vec(_Tp v0, _Tp v1, _Tp v2); //!< 3-element vector constructor
+        Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3); //!< 4-element vector constructor
+        Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4); //!< 5-element vector constructor
+        Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5); //!< 6-element vector constructor
+        Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6); //!< 7-element vector constructor
+        Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6, _Tp v7); //!< 8-element vector constructor
+        Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6, _Tp v7, _Tp v8); //!< 9-element vector constructor
+        Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6, _Tp v7, _Tp v8,
+            _Tp v9); //!< 10-element vector constructor
+        Vec(_Tp v0, _Tp v1, _Tp v2, _Tp v3, _Tp v4, _Tp v5, _Tp v6, _Tp v7, _Tp v8, _Tp v9, _Tp v10, _Tp v11, _Tp v12,
+            _Tp v13); //!< 14-element vector constructor
+        explicit Vec(const _Tp *values);
+
+        Vec(std::initializer_list<_Tp>);
+
+        Vec(const Vec<_Tp, cn> &v);
+
+
+
     };
 
     ////////////////////// Matx Implementation /////////////////////////
