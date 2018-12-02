@@ -11,6 +11,51 @@
 #include <initializer_list>
 
 namespace apollo {
+
+    ////////////////////////////// Small Matrix ///////////////////////////
+    struct Matx_AddOp {
+        Matx_AddOp() {}
+
+        Matx_AddOp(const Matx_AddOp &) {}
+    };
+
+    struct Matx_SubOp {
+        Matx_SubOp() {}
+
+        Matx_SubOp(const Matx_SubOp &) {}
+    };
+
+    struct Matx_ScaleOp {
+        Matx_ScaleOp() {}
+
+        Matx_ScaleOp(const Matx_ScaleOp &) {}
+    };
+
+    struct Matx_MulOp {
+        Matx_MulOp() {}
+
+        Matx_MulOp(const Matx_MulOp &) {}
+    };
+
+    struct Matx_DivOp {
+        Matx_DivOp() {}
+
+        Matx_DivOp(const Matx_DivOp &) {}
+    };
+
+    struct Matx_MatMulOp {
+        Matx_MatMulOp() {}
+
+        Matx_MatMulOp(const Matx_MatMulOp &) {}
+    };
+
+    struct Matx_TOp {
+        Matx_TOp() {}
+
+        Matx_TOp(const Matx_TOp &) {}
+    };
+
+
     template<typename _Tp, int m, int n>
     class Matx {
     public:
