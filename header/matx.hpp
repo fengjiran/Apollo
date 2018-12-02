@@ -145,6 +145,14 @@ namespace apollo {
 
         Vec(const Vec<_Tp, cn> &v);
 
+        static Vec all(_Tp alpha);
+
+        //! per-element multiplication
+        Vec mul(const Vec<_Tp, cn> &v) const;
+
+        //! conjugation (makes sense for complex numbers and quaternions)
+        Vec conj() const;
+
 
 
     };
