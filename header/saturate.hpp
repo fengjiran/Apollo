@@ -48,6 +48,10 @@ namespace cv {
     template<typename _Tp>
     static inline
     _Tp saturate_cast(uint64 v) { return _Tp(v); }
+
+    template<>
+    inline
+    uchar saturate_cast<uchar>(schar v) { return (uchar) std::max((int) v, 0); }
 }
 
 #endif //APOLLO_SATURATE_HPP
