@@ -586,6 +586,15 @@ namespace apollo {
     inline
     Vec<_Tp, cn>::Vec(const Vec<_Tp, cn> &v):Matx<_Tp, cn, 1>(v.val) {}
 
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn> Vec<_Tp, cn>::all(_Tp alpha) {
+        Vec v;
+        for (int i = 0; i < cn; i++)
+            v.val[i] = alpha;
+        return v;
+    }
+
 
 }
 
