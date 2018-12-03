@@ -131,6 +131,19 @@ namespace apollo {
 
         Matx(const Matx<_Tp, m, n> &a, const Matx<_Tp, m, n> &b, Matx_SubOp);
 
+        template<typename _T2>
+        Matx(const Matx<_Tp, m, n> &a, _T2 alpha, Matx_ScaleOp);
+
+        Matx(const Matx<_Tp, m, n> &a, const Matx<_Tp, m, n> &b, Matx_MulOp);
+
+        Matx(const Matx<_Tp, m, n> &a, const Matx<_Tp, m, n> &b, Matx_DivOp);
+
+        template<int l>
+        Matx(const Matx<_Tp, m, l> &a, const Matx<_Tp, l, n> &b, Matx_MulOp);
+
+        Matx(const Matx<_Tp, m, n> &a, Matx_TOp);
+
+
 
 
 
@@ -549,6 +562,42 @@ namespace apollo {
         for (int i = 0; i < channels; i++)
             val[i] = saturate_cast<_Tp>(a.val[i] - b.val[i]);
     }
+
+    template<typename _Tp, int m, int n>
+    template<typename _T2>
+    inline
+    Matx<_Tp, m, n>::Matx(const Matx<_Tp, m, n> &a, _T2 alpha, Matx_ScaleOp) {
+        for (int i = 0; i < channels; i++)
+            val[i] = saturate_cast<_Tp>(a.val[i] * alpha);
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n>::Matx(const Matx<_Tp, m, n> &a, const Matx<_Tp, m, n> &b, Matx_MulOp) {
+        for (int i = 0; i < channels; i++)
+            val[i] = saturate_cast<_Tp>(a.val[i] * b.val[i]);
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n>::Matx(const Matx<_Tp, m, n> &a, const Matx<_Tp, m, n> &b, Matx_DivOp) {
+        for (int i = 0; i < channels; i++)
+            val[i] = saturate_cast<_Tp>(a.val[i] / b.val[i]);
+    }
+
+    template<typename _Tp, int m, int n>
+    template<int l>
+    inline
+    Matx<_Tp, m, n>::Matx(const Matx<_Tp, m, l> &a, const Matx<_Tp, l, n> &b, Matx_MulOp) {
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++) {
+                _Tp s = 0;
+                for (int k = 0; k < l; k++)
+                    s += a(i, k) * b(k, j);
+                val[i * n + j] = s;
+            }
+    }
+
 
 
     ////////////////////// Vec Implementation /////////////////////////
