@@ -7,6 +7,7 @@
 #define APOLLO_MATX_HPP
 
 #include "cvdef.h"
+#include "saturate.hpp"
 
 #include <initializer_list>
 
@@ -600,7 +601,8 @@ namespace apollo {
     Vec<_Tp, cn> Vec<_Tp, cn>::mul(const Vec<_Tp, cn> &v) const {
         Vec<_Tp, cn> w;
         for (int i = 0; i < cn; i++)
-            w.val[i] =
+            w.val[i] = saturate_cast<_Tp>(this->val[i] * v.val[i]);
+        return w;
     }
 
 
