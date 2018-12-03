@@ -95,6 +95,24 @@ namespace cv {
         return (uchar) std::min(v, (uint64) UCHAR_MAX);
     }
 
+    template<>
+    inline
+    schar saturate_cast<schar>(uchar v) {
+        return (schar) std::min((int) v, SCHAR_MAX);
+    }
+
+    template<>
+    inline
+    schar saturate_cast<schar>(ushort v) {
+        return (schar) std::min((unsigned) v, (unsigned) SCHAR_MAX);
+    }
+
+    template<>
+    inline
+    schar saturate_cast<schar>(int v) {
+        return (schar) ((unsigned) (v - SCHAR_MIN) <= (unsigned) UCHAR_MAX ? v : v > 0 ? SCHAR_MAX : SCHAR_MIN);
+    }
+
 
 }
 
