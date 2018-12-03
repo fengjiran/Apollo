@@ -5,4 +5,11 @@
 #ifndef APOLLO_SATURATE_HPP
 #define APOLLO_SATURATE_HPP
 
+#include "cvdef.h"
+#include "fast_math.hpp"
+
+namespace cv {
+    //
+}
+
 #endif //APOLLO_SATURATE_HPP
