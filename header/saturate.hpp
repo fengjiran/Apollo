@@ -60,6 +60,10 @@ namespace cv {
     template<>
     inline
     uchar saturate_cast<uchar>(int v) { return (uchar) ((unsigned) v <= UCHAR_MAX ? v : v > 0 ? UCHAR_MAX : 0); }
+
+    template<>
+    inline
+    uchar saturate_cast<uchar>(short v) { return saturate_cast<uchar>((int) v); }
 }
 
 #endif //APOLLO_SATURATE_HPP
