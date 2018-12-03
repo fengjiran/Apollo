@@ -605,6 +605,37 @@ namespace apollo {
         return w;
     }
 
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn> Vec<_Tp, cn>::conj() const {
+        return conjugate(*this);
+    }
+
+    template<>
+    inline
+    Vec<float, 2> Vec<float, 2>::conj() const {
+        return conjugate(*this);
+    }
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn> Vec<_Tp, cn>::cross(const Vec<_Tp, cn> &v) const {
+        return Vec<_Tp, cn>();
+    }
+
+
+    template<typename _Tp>
+    inline
+    Vec<_Tp, 2> conjugate(const Vec<_Tp, 2> &v) {
+        return Vec<_Tp, 2>(v[0], -v[1]);
+    }
+
+    template<typename _Tp>
+    inline
+    Vec<_Tp, 4> conjugate(const Vec<_Tp, 4> &v) {
+        return Vec<_Tp, 4>(v[0], -v[1], -v[2], -v[3]);
+    }
+
 
 }
 
