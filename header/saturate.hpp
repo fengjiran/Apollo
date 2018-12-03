@@ -64,6 +64,38 @@ namespace cv {
     template<>
     inline
     uchar saturate_cast<uchar>(short v) { return saturate_cast<uchar>((int) v); }
+
+    template<>
+    inline
+    uchar saturate_cast<uchar>(unsigned v) { return (uchar) std::min(v, (unsigned) UCHAR_MAX); }
+
+    template<>
+    inline
+    uchar saturate_cast<uchar>(float v) {
+        int iv = cvRound(v);
+        return saturate_cast<uchar>(iv);
+    }
+
+    template<>
+    inline
+    uchar saturate_cast<uchar>(double v) {
+        int iv = cvRound(v);
+        return saturate_cast<uchar>(iv);
+    }
+
+    template<>
+    inline
+    uchar saturate_cast<uchar>(int64 v) {
+        return (uchar) ((uint64) v <= (uint64) UCHAR_MAX ? v : v > 0 ? UCHAR_MAX : 0);
+    }
+
+    template<>
+    inline
+    uchar saturate_cast<uchar>(uint64 v) {
+        return (uchar) std::min(v, (uint64) UCHAR_MAX);
+    }
+
+
 }
 
 #endif //APOLLO_SATURATE_HPP
