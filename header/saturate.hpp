@@ -16,6 +16,38 @@ namespace cv {
     template<typename _Tp>
     static inline
     _Tp saturate_cast(schar v) { return _Tp(v); }
+
+    template<typename _Tp>
+    static inline
+    _Tp saturate_cast(ushort v) { return _Tp(v); }
+
+    template<typename _Tp>
+    static inline
+    _Tp saturate_cast(short v) { return _Tp(v); }
+
+    template<typename _Tp>
+    static inline
+    _Tp saturate_cast(unsigned v) { return _Tp(v); }
+
+    template<typename _Tp>
+    static inline
+    _Tp saturate_cast(int v) { return _Tp(v); }
+
+    template<typename _Tp>
+    static inline
+    _Tp saturate_cast(float v) { return _Tp(v); }
+
+    template<typename _Tp>
+    static inline
+    _Tp saturate_cast(double v) { return _Tp(v); }
+
+    template<typename _Tp>
+    static inline
+    _Tp saturate_cast(int64 v) { return _Tp(v); }
+
+    template<typename _Tp>
+    static inline
+    _Tp saturate_cast(uint64 v) { return _Tp(v); }
 }
 
 #endif //APOLLO_SATURATE_HPP
