@@ -287,6 +287,35 @@ namespace apollo {
 
     };
 
+    using Vec2b = Vec<uchar, 2>;
+    using Vec3b = Vec<uchar, 3>;
+    using Vec4b = Vec<uchar, 3>;
+
+    using Vec2s = Vec<short, 2>;
+    using Vec3s = Vec<short, 3>;
+    using Vec4s = Vec<short, 4>;
+
+    using Vec2w = Vec<ushort, 2>;
+    using Vec3w = Vec<ushort, 3>;
+    using Vec4w = Vec<ushort, 4>;
+
+    using Vec2i = Vec<int, 2>;
+    using Vec3i = Vec<int, 3>;
+    using Vec4i = Vec<int, 4>;
+    using Vec6i = Vec<int, 6>;
+    using Vec8i = Vec<int, 8>;
+
+    using Vec2f = Vec<float, 2>;
+    using Vec3f = Vec<float, 3>;
+    using Vec4f = Vec<float, 4>;
+    using Vec6f = Vec<float, 6>;
+
+    using Vec2d = Vec<double, 2>;
+    using Vec3d = Vec<double, 3>;
+    using Vec4d = Vec<double, 4>;
+    using Vec6d = Vec<double, 6>;
+
+
     template<typename _Tp>
     inline
     Vec<_Tp, 2> conjugate(const Vec<_Tp, 2> &v) {
