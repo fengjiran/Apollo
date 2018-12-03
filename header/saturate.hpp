@@ -9,7 +9,9 @@
 #include "fast_math.hpp"
 
 namespace cv {
-    //
+    template<typename _Tp>
+    static inline
+    _Tp saturate_cast(uchar v) { return _Tp(v); }
 }
 
 #endif //APOLLO_SATURATE_HPP
