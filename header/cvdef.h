@@ -11,7 +11,7 @@
 
 #define CV__DEBUG_NS_BEGIN namespace debug_build_guard {
 #define CV__DEBUG_NS_END }
-namespace cv {namespace debug_build_guard{} using namespace debug_build_guard;}
+namespace apollo {namespace debug_build_guard{} using namespace debug_build_guard;}
 #endif
 #endif
 
@@ -637,7 +637,7 @@ __CV_ENUM_FLAGS_BITWISE_XOR_EQ   (EnumType, EnumType)                           
 #include OPENCV_STDINT_HEADER
 #elif defined(__cplusplus)
 #if defined(_MSC_VER) && _MSC_VER < 1600 /* MSVS 2010 */
-namespace cv {
+namespace apollo {
 typedef signed char int8_t;
 typedef unsigned char uint8_t;
 typedef signed short int16_t;
@@ -649,7 +649,8 @@ typedef unsigned __int64 uint64_t;
 }
 #elif defined(_MSC_VER) || __cplusplus >= 201103L
 #include <cstdint>
-namespace cv {
+
+namespace apollo {
     using std::int8_t;
     using std::uint8_t;
     using std::int16_t;
@@ -661,7 +662,7 @@ namespace cv {
 }
 #else
 #include <stdint.h>
-namespace cv {
+namespace apollo {
 typedef ::int8_t int8_t;
 typedef ::uint8_t uint8_t;
 typedef ::int16_t int16_t;
@@ -677,7 +678,7 @@ typedef ::uint64_t uint64_t;
 #endif
 
 #ifdef __cplusplus
-namespace cv
+namespace apollo
 {
 
     class float16_t
