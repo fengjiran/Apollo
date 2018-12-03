@@ -150,6 +150,42 @@ namespace apollo {
 
     };
 
+    using Matx12f = Matx<float, 1, 2>;
+    using Matx12d = Matx<double, 1, 2>;
+    using Matx13f = Matx<float, 1, 3>;
+    using Matx13d = Matx<double, 1, 3>;
+    using Matx14f = Matx<float, 1, 4>;
+    using Matx14d = Matx<double, 1, 4>;
+    using Matx16f = Matx<float, 1, 6>;
+    using Matx16d = Matx<double, 1, 6>;
+
+    using Matx21f = Matx<float, 2, 1>;
+    using Matx21d = Matx<double, 2, 1>;
+    using Matx31f = Matx<float, 3, 1>;
+    using Matx31d = Matx<double, 3, 1>;
+    using Matx41f = Matx<float, 4, 1>;
+    using Matx41d = Matx<double, 4, 1>;
+    using Matx61f = Matx<float, 6, 1>;
+    using Matx61d = Matx<double, 6, 1>;
+
+    using Matx22f = Matx<float, 2, 2>;
+    using Matx22d = Matx<double, 2, 2>;
+    using Matx23f = Matx<float, 2, 3>;
+    using Matx23d = Matx<double, 2, 3>;
+    using Matx32f = Matx<float, 3, 2>;
+    using Matx32d = Matx<double, 3, 2>;
+
+    using Matx33f = Matx<float, 3, 3>;
+    using Matx33d = Matx<double, 3, 3>;
+
+    using Matx34f = Matx<float, 3, 4>;
+    using Matx34d = Matx<double, 3, 4>;
+    using Matx43f = Matx<float, 4, 3>;
+    using Matx43d = Matx<double, 4, 3>;
+
+    using Matx44f = Matx<float, 4, 4>;
+    using Matx44d = Matx<double, 6, 6>;
+
     /////////////////////// Vec (used as element of multi-channel images /////////////////////
 
     /** @brief Template class for short numerical vectors, a partial case of Matx
