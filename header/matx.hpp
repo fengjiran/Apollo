@@ -141,10 +141,7 @@ namespace apollo {
         template<int l>
         Matx(const Matx<_Tp, m, l> &a, const Matx<_Tp, l, n> &b, Matx_MulOp);
 
-        Matx(const Matx<_Tp, m, n> &a, Matx_TOp);
-
-
-
+        Matx(const Matx<_Tp, m, n> &a, Matx_TOp);  // val = a_T
 
 
 
@@ -779,6 +776,11 @@ namespace apollo {
 
         return this->val[i];
     }
+
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn>::Vec(const Matx<_Tp, cn, 1> &a, const Matx<_Tp, cn, 1> &b, Matx_AddOp op)
+            :Matx<_Tp, cn, 1>(a, b, op) {}
 
 
 }
