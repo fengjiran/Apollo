@@ -8,6 +8,8 @@
 #include "cvdef.h"
 #include "fast_math.hpp"
 
+using namespace cv;
+
 namespace apollo {
     template<typename _Tp>
     static inline
