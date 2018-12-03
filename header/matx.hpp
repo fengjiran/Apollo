@@ -146,6 +146,17 @@ namespace apollo {
         // dot product computed with the default precision
         _Tp dot(const Matx<_Tp, m, n> &v) const;
 
+        // dot product computed in double-precision
+        double ddot(const Matx<_Tp, m, n> &v) const;
+
+        // convert to another data type
+        template<typename T2>
+        operator Matx<T2, m, n>() const;
+
+        // change the matrix shape
+        template<int m1, int n1>
+        Matx<_Tp, m1, n1> reshape() const;
+
 
 
         _Tp val[m * n]; // matrix elements
@@ -679,6 +690,36 @@ namespace apollo {
             s += val[i] * M.val[i];
         return s;
     }
+
+    template<typename _Tp, int m, int n>
+    inline
+    double Matx<_Tp, m, n>::ddot(const Matx<_Tp, m, n> &M) const {
+        double s = 0;
+        for (int i = 0; i < channels; i++)
+            s += (double) val[i] * M.val[i];
+        return s;
+    }
+
+    template<typename _Tp, int m, int n>
+    template<typename T2>
+    inline
+    Matx<_Tp, m, n>::operator Matx<T2, m, n>() const {
+        Matx<T2, m, n> M;
+        for (int i = 0; i < m * n; i++)
+            M.val[i] = saturate_cast<T2>(val[i]);
+        return M;
+    }
+
+    template<typename _Tp, int m, int n>
+    template<int m1, int n1>
+    inline
+    Matx<_Tp, m1, n1> Matx<_Tp, m, n>::reshape() const {
+        CV_StaticAssert(m1 * n1 == m * n, "Input and destination matrices must have the same number of elements");
+        return (const Matx<_Tp, m1, n1> &) *this;
+    }
+
+
+
 
 
 
