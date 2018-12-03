@@ -143,6 +143,9 @@ namespace apollo {
 
         Matx(const Matx<_Tp, m, n> &a, Matx_TOp);  // val = a_T
 
+        // dot product computed with the default precision
+        _Tp dot(const Matx<_Tp, m, n> &v) const;
+
 
 
         _Tp val[m * n]; // matrix elements
@@ -666,6 +669,15 @@ namespace apollo {
         for (int i = 0; i < m; i++)
             for (int j = 0; j < n; j++)
                 val[i * n + j] = a(j, i);
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    _Tp Matx<_Tp, m, n>::dot(const Matx<_Tp, m, n> &M) const {
+        _Tp s = 0;
+        for (int i = 0; i < channels; i++)
+            s += val[i] * M.val[i];
+        return s;
     }
 
 
