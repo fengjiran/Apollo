@@ -8,7 +8,7 @@
 #include "cvdef.h"
 #include "fast_math.hpp"
 
-namespace cv {
+namespace apollo {
     template<typename _Tp>
     static inline
     _Tp saturate_cast(uchar v) { return _Tp(v); }
