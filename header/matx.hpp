@@ -127,6 +127,13 @@ namespace apollo {
 
         _Tp &operator()(int i);
 
+        Matx(const Matx<_Tp, m, n> &a, const Matx<_Tp, m, n> &b, Matx_AddOp);
+
+        Matx(const Matx<_Tp, m, n> &a, const Matx<_Tp, m, n> &b, Matx_SubOp);
+
+
+
+
 
         _Tp val[m * n]; // matrix elements
 
@@ -212,7 +219,7 @@ namespace apollo {
 
         //! conversion to another data type
         template<typename T2>
-        operator Vec<T2, cn>() const;
+        explicit operator Vec<T2, cn>() const;
 
         /*! element access */
         const _Tp &operator[](int i) const;
@@ -529,6 +536,20 @@ namespace apollo {
         return val[i];
     }
 
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n>::Matx(const Matx<_Tp, m, n> &a, const Matx<_Tp, m, n> &b, Matx_AddOp) {
+        for (int i = 0; i < channels; i++)
+            val[i] = saturate_cast<_Tp>(a.val[i] + b.val[i]);
+    }
+
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n>::Matx(const Matx<_Tp, m, n> &a, const Matx<_Tp, m, n> &b, Matx_SubOp) {
+        for (int i = 0; i < channels; i++)
+            val[i] = saturate_cast<_Tp>(a.val[i] - b.val[i]);
+    }
+
 
     ////////////////////// Vec Implementation /////////////////////////
     template<typename _Tp, int cn>
@@ -660,7 +681,7 @@ namespace apollo {
     template<>
     inline
     Vec<double, 3> Vec<double, 3>::cross(const Vec<double, 3> &v) const {
-        return Vec<float, 3>(this->val[1] * v.val[2] - this->val[2] * v.val[1],
+        return Vec<double, 3>(this->val[1] * v.val[2] - this->val[2] * v.val[1],
                              this->val[2] * v.val[0] - this->val[0] * v.val[2],
                              this->val[0] * v.val[1] - this->val[1] * v.val[0]);
     }
@@ -673,6 +694,33 @@ namespace apollo {
         for (int i = 0; i < cn; i++)
             v.val[i] = saturate_cast<T2>(this->val[i]);
         return v;
+    }
+
+    template<typename _Tp, int cn>
+    inline
+    const _Tp &Vec<_Tp, cn>::operator[](int i) const {
+//        CV_StaticAssert((unsigned)i < (unsigned)cn, "i shoule less than cn");
+        return this->val[i];
+    }
+
+    template<typename _Tp, int cn>
+    inline
+    _Tp &Vec<_Tp, cn>::operator[](int i) {
+        return this->val[i];
+    }
+
+    template<typename _Tp, int cn>
+    inline
+    const _Tp &Vec<_Tp, cn>::operator()(int i) const {
+
+        return this->val[i];
+    }
+
+    template<typename _Tp, int cn>
+    inline
+    _Tp &Vec<_Tp, cn>::operator()(int i) {
+
+        return this->val[i];
     }
 
 
