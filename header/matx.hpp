@@ -617,22 +617,62 @@ namespace apollo {
         return w;
     }
 
-    template<typename _Tp, int cn>
-    inline
-    Vec<_Tp, cn> Vec<_Tp, cn>::conj() const {
-        return conjugate(*this);
-    }
-
     template<>
     inline
     Vec<float, 2> Vec<float, 2>::conj() const {
         return conjugate(*this);
     }
 
+    template<>
+    inline
+    Vec<double, 2> Vec<double, 2>::conj() const {
+        return conjugate(*this);
+    }
+
+    template<>
+    inline
+    Vec<float, 4> Vec<float, 4>::conj() const {
+        return conjugate(*this);
+    }
+
+    template<>
+    inline
+    Vec<double, 4> Vec<double, 4>::conj() const {
+        return conjugate(*this);
+    }
+
+
     template<typename _Tp, int cn>
     inline
     Vec<_Tp, cn> Vec<_Tp, cn>::cross(const Vec<_Tp, cn> &v) const {
+        CV_StaticAssert(cn == 3, "for arbitrary-size vector there is no cross-product defined");
         return Vec<_Tp, cn>();
+    }
+
+    template<>
+    inline
+    Vec<float, 3> Vec<float, 3>::cross(const Vec<float, 3> &v) const {
+        return Vec<float, 3>(this->val[1] * v.val[2] - this->val[2] * v.val[1],
+                             this->val[2] * v.val[0] - this->val[0] * v.val[2],
+                             this->val[0] * v.val[1] - this->val[1] * v.val[0]);
+    }
+
+    template<>
+    inline
+    Vec<double, 3> Vec<double, 3>::cross(const Vec<double, 3> &v) const {
+        return Vec<float, 3>(this->val[1] * v.val[2] - this->val[2] * v.val[1],
+                             this->val[2] * v.val[0] - this->val[0] * v.val[2],
+                             this->val[0] * v.val[1] - this->val[1] * v.val[0]);
+    }
+
+    template<typename _Tp, int cn>
+    template<typename T2>
+    inline
+    Vec<_Tp, cn>::operator Vec<T2, cn>() const {
+        Vec<T2, cn> v;
+        for (int i = 0; i < cn; i++)
+            v.val[i] = saturate_cast<T2>(this->val[i]);
+        return v;
     }
 
 
