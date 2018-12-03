@@ -598,6 +598,14 @@ namespace apollo {
             }
     }
 
+    template<typename _Tp, int m, int n>
+    inline
+    Matx<_Tp, m, n>::Matx(const Matx<_Tp, m, n> &a, Matx_TOp) {
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                val[i * n + j] = a(j, i);
+    }
+
 
 
     ////////////////////// Vec Implementation /////////////////////////
