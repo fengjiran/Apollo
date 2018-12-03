@@ -595,6 +595,14 @@ namespace apollo {
         return v;
     }
 
+    template<typename _Tp, int cn>
+    inline
+    Vec<_Tp, cn> Vec<_Tp, cn>::mul(const Vec<_Tp, cn> &v) const {
+        Vec<_Tp, cn> w;
+        for (int i = 0; i < cn; i++)
+            w.val[i] =
+    }
+
 
 }
 
