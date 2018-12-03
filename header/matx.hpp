@@ -787,6 +787,13 @@ namespace apollo {
     Vec<_Tp, cn>::Vec(const Matx<_Tp, cn, 1> &a, const Matx<_Tp, cn, 1> &b, Matx_SubOp op)
             :Matx<_Tp, cn, 1>(a, b, op) {}
 
+    template<typename _Tp, int cn>
+    template<typename _T2>
+    inline
+    Vec<_Tp, cn>::Vec(const Matx<_Tp, cn, 1> &a, _T2 alpha, Matx_ScaleOp op)
+            :Matx<_Tp, cn, 1>(a, alpha, op) {}
+
+
 
 }
 
