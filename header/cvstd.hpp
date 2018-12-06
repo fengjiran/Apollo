@@ -25,6 +25,15 @@ namespace apollo {
     static inline unsigned abs(unsigned a) { return a; }
 
     static inline uint64 abs(uint64 a) { return a; }
+
+    using std::min;
+    using std::max;
+    using std::abs;
+    using std::swap;
+    using std::sqrt;
+    using std::exp;
+    using std::pow;
+    using std::log;
 }
 
 
