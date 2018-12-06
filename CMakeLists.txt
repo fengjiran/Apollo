@@ -14,4 +14,4 @@ add_executable(Apollo
         header/cv_cpu_helper.h
         header/fast_math.hpp
         header/mat.hpp
-        header/types.hpp header/matx.hpp header/saturate.hpp)
+        header/types.hpp header/matx.hpp header/saturate.hpp header/cvstd.hpp)

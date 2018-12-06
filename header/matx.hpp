@@ -151,7 +151,7 @@ namespace apollo {
 
         // convert to another data type
         template<typename T2>
-        operator Matx<T2, m, n>() const;
+        explicit operator Matx<T2, m, n>() const;
 
         // change the matrix shape
         template<int m1, int n1>
@@ -160,6 +160,21 @@ namespace apollo {
         //! extract part of the matrix
         template<int m1, int n1>
         Matx<_Tp, m1, n1> get_minor(int i, int j) const;
+
+        //! extract the matrix row
+        Matx<_Tp, 1, n> row(int i) const;
+
+        //! extract the matrix column
+        Matx<_Tp, m, 1> col(int i) const;
+
+        //! extract the matrix diagonal
+        diag_type diag() const;
+
+        //! transpose the matrix
+        Matx<_Tp, n, m> t() const;
+
+        //! invert the matrix
+        Matx<_Tp, n, m> inv(int method = DECOMP_LU, bool *p_is_ok = nullptr) const;
 
 
 
