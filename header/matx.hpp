@@ -157,6 +157,10 @@ namespace apollo {
         template<int m1, int n1>
         Matx<_Tp, m1, n1> reshape() const;
 
+        //! extract part of the matrix
+        template<int m1, int n1>
+        Matx<_Tp, m1, n1> get_minor(int i, int j) const;
+
 
 
         _Tp val[m * n]; // matrix elements
